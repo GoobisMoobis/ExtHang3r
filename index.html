@@ -259,7 +259,16 @@
         "Borderless Classroom Student": "chrome-extension://kdpgkligilplaanoablcpjahjjeghcl/pages/blockPage.html",
       };
 
-      let hasSupportedExtensions = true;
+      let hasSupportedExtensions = false;
+
+	          let hasSupportedExtensions = false;
+      for (const [name, url] of Object.entries(extensions)) {
+          const option = document.createElement("option");
+          option.value = url;
+          option.textContent = name;
+          selectElement.appendChild(option);
+          hasSupportedExtensions = true;
+      }
 
       if (!hasSupportedExtensions) {
         const option = document.createElement("option");
